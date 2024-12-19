@@ -11,11 +11,9 @@ body {
 
 .container {
     max-width: 1200px;
-    margin: 20px auto;
-    padding: 20px;
+    padding: 1px 20px;
     background-color: white;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
     overflow: hidden;
 }
 
@@ -98,6 +96,10 @@ body {
     font-family: "Great Vibes", cursive;
     font-weight: 400;
     font-style: normal;
+}
+
+.separador1 {
+    height: 150px;
 }
 
 .separador {
