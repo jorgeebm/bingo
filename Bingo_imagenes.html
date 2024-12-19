@@ -78,6 +78,9 @@
                 tablaHTML += `</div></div>`;
                 tablaHTML += `<div class="footer">Bingo Montero</div>`;
                 tablaHTML += `</div>`;
+                if ((t + 1) % 4 == 0) {
+                    tablaHTML += `<div><p>HOLA</p></div>`;
+                }
                 contenedor.innerHTML += tablaHTML;
             }
         }
