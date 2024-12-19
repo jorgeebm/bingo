@@ -22,12 +22,15 @@ body {
 .tabla-bingo {
     display: inline-block;
     margin: 1px;
-    width: 320px;
-    height: 385px;
     /* Tamaño más grande de la tabla */
-    padding: 10px 20px 20px 20px;
+    width: 320px;
     /* Aumentar la altura de las tablas */
-    background: linear-gradient(#76c3f9, #3d75c5);
+    height: 385px;
+    padding: 10px 20px 20px 20px;
+    /* Color normal */
+    /* background: linear-gradient(#76c3f9, #3d75c5); */
+    /* Color navidad */
+    background: linear-gradient(#f97676, #c53d3d);
 }
 
 .encabezado {
@@ -44,9 +47,18 @@ body {
 }
 
 .tabla-body-ext {
-    padding: 15px;
-    background-color: #78d6f7;
     border-radius: 10px;
+    /* Border normal */
+    /* padding: 14px; */
+    /* Color normal */
+    /* background-color: #78d6f7; */
+
+    /* Borde navidad */
+    padding: 14px;
+    /* Color navidad */
+    background-color: #c0db95;
+    border: 2px solid #5ca64f;
+    outline: 2px solid #5ca64f;
 }
 
 .tabla-body-int {
@@ -64,6 +76,20 @@ body {
     background-color: white;
 }
 
+.box-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2px;
+    background-color: white;
+    border-radius: 5px;
+
+}
+
+.box-img img {
+    width: 36px;
+}
+
 .footer {
     text-align: right;
     padding: 7px 0 0 0;
@@ -75,7 +101,7 @@ body {
 }
 
 .separador {
-    height: 200px;
+    height: 400px;
 }
 
 button {
