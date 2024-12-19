@@ -1,0 +1,109 @@
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador de Tablas de Bingo</title>
+    <link rel="stylesheet" type="text/css" href="./assets/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js"></script>
+</head>
+
+<body>
+
+    <div class="container">
+        <button id="generate-images" onclick="generateImages()">Generar Imágenes</button>
+        <div id="bingo-tables"></div>
+    </div>
+
+    <script>
+        // Función para generar una tabla de bingo
+        function generarTablaBingo() {
+            const rangos = {
+                'B': [1, 15],
+                'I': [16, 30],
+                'N': [31, 45],
+                'G': [46, 60],
+                'O': [61, 75]
+            };
+
+            let tabla = { B: [], I: [], N: [], G: [], O: [] };
+
+            // Generamos los números de cada columna
+            for (let letra in rangos) {
+                let [inicio, fin] = rangos[letra];
+                while (tabla[letra].length < 5) {
+                    const numero = Math.floor(Math.random() * (fin - inicio + 1)) + inicio;
+                    if (!tabla[letra].includes(numero)) {
+                        tabla[letra].push(numero);
+                    }
+                }
+                tabla[letra].sort((a, b) => a - b);
+            }
+
+            // Insertamos la estrella en el casillero central de la columna "N"
+            //tabla['N'][2] = "⭐";  // Casillero central (fila 3, columna N) tiene la estrella
+            tabla['N'][2] = "🎄";  // Casillero central (fila 3, columna N) tiene la estrella
+
+            return tabla;
+        }
+
+        // Función para generar e imprimir las tablas de bingo en la página
+        function imprimirTablasBingo(numTablas = 60) {
+            const contenedor = document.getElementById('bingo-tables');
+            contenedor.innerHTML = ""; // Limpiar tablas previas
+
+            for (let t = 0; t < numTablas; t++) {
+                const tabla = generarTablaBingo();
+                let tablaHTML = `<div class="tabla-bingo" id="tabla-${t}">
+                    <div class="encabezado">
+                        <div>B</div>
+                        <div>I</div>
+                        <div>N</div>
+                        <div>G</div>
+                        <div>O</div>
+                    </div>
+                    <div class="tabla-body-ext">
+                    <div class="tabla-body-int">`;
+
+                for (let i = 0; i < 5; i++) {
+                    tablaHTML += `
+                        <div class="box-num">${tabla['B'][i]}</div>
+                        <div class="box-num">${tabla['I'][i]}</div>
+                        <div class="box-num">${tabla['N'][i]}</div>
+                        <div class="box-num">${tabla['G'][i]}</div>
+                        <div class="box-num">${tabla['O'][i]}</div>
+                    `;
+                }
+                tablaHTML += `</div></div>`;
+                tablaHTML += `<div class="footer">Bingo Montero</div>`;
+                tablaHTML += `</div>`;
+                contenedor.innerHTML += tablaHTML;
+            }
+        }
+
+        // Función para generar las imágenes usando dom-to-image
+        function generateImages() {
+            const tablas = document.querySelectorAll('.tabla-bingo');
+
+            tablas.forEach((tabla, index) => {
+                // Usamos dom-to-image para convertir el contenido HTML de cada tabla en una imagen
+                domtoimage.toPng(tabla)
+                    .then(function (dataUrl) {
+                        // Crear un enlace para descargar la imagen
+                        const link = document.createElement('a');
+                        link.href = dataUrl;
+                        link.download = `tabla_bingo_${index + 1}.png`;
+                        link.click(); // Iniciar la descarga
+                    })
+                    .catch(function (error) {
+                        console.error('Error al generar la imagen: ', error);
+                    });
+            });
+        }
+
+        // Llamada inicial para mostrar las tablas
+        imprimirTablasBingo();
+    </script>
+</body>
+
+</html>
