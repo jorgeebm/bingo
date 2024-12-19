@@ -55,6 +55,10 @@
 
             for (let t = 0; t < numTablas; t++) {
                 const tabla = generarTablaBingo();
+                if (t == 0) {
+                    contenedor.innerHTML += `<div class="separador1"></div>`;
+                }
+
                 let tablaHTML = `<div class="tabla-bingo" id="tabla-${t}">
                     <div class="encabezado">
                         <div>B</div>
