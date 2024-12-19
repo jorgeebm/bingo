@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Concert+One&family=Fugaz+One&family=Oi&family=Spicy+Rice&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Great+Vibes&display=swap');
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f4f8;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.tabla-bingo {
+    display: inline-block;
+    margin: 1px;
+    width: 320px;
+    height: 385px;
+    /* Tamaño más grande de la tabla */
+    padding: 10px 20px 20px 20px;
+    /* Aumentar la altura de las tablas */
+    background: linear-gradient(#76c3f9, #3d75c5);
+}
+
+.encabezado {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 5px;
+    padding: 0 15px 5px 15px;
+    text-align: center;
+    font-size: 40px;
+    color: white;
+    font-family: "Spicy Rice", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.tabla-body-ext {
+    padding: 15px;
+    background-color: #78d6f7;
+    border-radius: 10px;
+}
+
+.tabla-body-int {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 5px;
+    text-align: center;
+    font-size: 28px;
+}
+
+.box-num {
+    font-weight: 600;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: white;
+}
+
+.footer {
+    text-align: right;
+    padding: 7px 0 0 0;
+    font-size: 14px;
+    color: white;
+    font-family: "Great Vibes", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+
+button {
+    margin-top: 30px;
+    margin-bottom: 20px;
+    padding: 15px 30px;
+    font-size: 18px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
