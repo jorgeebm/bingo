@@ -12,8 +12,8 @@
 <body>
 
     <div class="container">
-        <button id="generate-images" onclick="generateImages()">Generar Imágenes</button>
         <div id="bingo-tables"></div>
+        <button id="generate-images" onclick="generateImages()">Generar Imágenes</button>
     </div>
 
     <script>
@@ -79,7 +79,7 @@
                 tablaHTML += `<div class="footer">Bingo Montero</div>`;
                 tablaHTML += `</div>`;
                 if ((t + 1) % 4 == 0) {
-                    tablaHTML += `<div><p>HOLA</p></div>`;
+                    tablaHTML += `<div class="separador"></div>`;
                 }
                 contenedor.innerHTML += tablaHTML;
             }
