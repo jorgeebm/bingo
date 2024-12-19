@@ -98,12 +98,8 @@ body {
     font-style: normal;
 }
 
-.separador1 {
-    height: 115px;
-}
-
 .separador {
-    height: 230px;
+    height: 130px;
 }
 
 button {
