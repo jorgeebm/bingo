@@ -43,13 +43,13 @@
 
             // Insertamos la estrella en el casillero central de la columna "N"
             //tabla['N'][2] = "⭐";  // Casillero central (fila 3, columna N) tiene la estrella
-            tabla['N'][2] = "🎄";  // Casillero central (fila 3, columna N) tiene la estrella
+            //tabla['N'][2] = "🎄";  // Casillero central (fila 3, columna N) tiene la estrella
 
             return tabla;
         }
 
         // Función para generar e imprimir las tablas de bingo en la página
-        function imprimirTablasBingo(numTablas = 60) {
+        function imprimirTablasBingo(numTablas = 40) {
             const contenedor = document.getElementById('bingo-tables');
             contenedor.innerHTML = ""; // Limpiar tablas previas
 
@@ -70,7 +70,16 @@
                     tablaHTML += `
                         <div class="box-num">${tabla['B'][i]}</div>
                         <div class="box-num">${tabla['I'][i]}</div>
-                        <div class="box-num">${tabla['N'][i]}</div>
+                    `;
+                    if (i == 2) {
+                        //tablaHTML += `<div class="box-num">⭐🎄</div>`;
+                        tablaHTML += `<div class="box-img"><img src="./assets/navidad.png" alt="navidad"></div>`;
+                    } else {
+                        tablaHTML += `
+                            <div class="box-num">${tabla['N'][i]}</div>
+                        `;
+                    }
+                    tablaHTML += `
                         <div class="box-num">${tabla['G'][i]}</div>
                         <div class="box-num">${tabla['O'][i]}</div>
                     `;
